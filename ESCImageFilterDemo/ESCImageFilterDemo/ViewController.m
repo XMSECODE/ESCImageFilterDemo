@@ -20,6 +20,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.oldImageView.layer.borderWidth = 1;
+    self.filterImageView.layer.borderWidth = 1;
+    
+    
+    
     // Do any additional setup after loading the view.
     
     UIImage *testImage = [UIImage imageNamed:@"test"];
@@ -31,16 +37,18 @@
     
     NSArray *array = [CIFilter filterNamesInCategories:nil];
     
-    NSLog(@"%@",array);
+//    NSLog(@"%@",array);
     
-    CIFilter *filter = [CIFilter filterWithName:@"CIBumpDistortion"];
+    CIFilter *filter = [CIFilter filterWithName:@"CIAffineTransform"];
     // 这里我们使用的是KVC的方式给filter设置属性
     [filter setValue:ciimage forKey:kCIInputImageKey];
-    // 设置凹凸的效果半径  越大越明显
-    [filter setValue:@500 forKey:kCIInputRadiusKey];
-    // CIVector :表示 X Y 坐标的一个类
-    // 设置中心点的
-    [filter setValue:[CIVector vectorWithX:200 Y:200] forKey:kCIInputCenterKey];
+    
+    CGAffineTransform d3d = CGAffineTransformIdentity;
+    d3d = CGAffineTransformRotate(d3d, M_PI / 4 );
+//    d3d = CGAffineTransformScale(d3d, 2, 1);
+    
+    NSValue *value = [NSValue valueWithBytes:&d3d objCType:@encode(CGAffineTransform)];
+    [filter setValue:value forKey:kCIInputTransformKey];
     
     //    3.有一个CIContext的对象去合并原图和滤镜效果
     CIImage *outputImage = filter.outputImage;
@@ -52,8 +60,9 @@
      *  fromRect:  合成之后图像的尺寸： 图像.extent
      */
     CGImageRef imageRefr = [context createCGImage:outputImage fromRect:outputImage.extent];
+    
     self.filterImageView.image = [UIImage imageWithCGImage:imageRefr];
-    NSLog(@"%@===%@",imageRef,ciimage);
+    NSLog(@"%@===%@",self.oldImageView.image,self.filterImageView.image);
 }
 
 
