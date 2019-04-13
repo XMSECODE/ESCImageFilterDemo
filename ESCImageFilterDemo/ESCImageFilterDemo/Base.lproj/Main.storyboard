@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wsn-TI-veU">
+                                <rect key="frame" x="0.0" y="44" width="414" height="310.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Wsn-TI-veU" secondAttribute="height" multiplier="4:3" id="uMH-YJ-1qJ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bNH-DI-aeS">
+                                <rect key="frame" x="0.0" y="374.5" width="414" height="310.5"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1U-sR-17a">
+                                <rect key="frame" x="192" y="755" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bNH-DI-aeS" firstAttribute="width" secondItem="Wsn-TI-veU" secondAttribute="width" id="G4R-cp-S1V"/>
+                            <constraint firstItem="Wsn-TI-veU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ghx-Ge-jeA"/>
+                            <constraint firstItem="bNH-DI-aeS" firstAttribute="height" secondItem="Wsn-TI-veU" secondAttribute="height" id="HhW-E3-Uhe"/>
+                            <constraint firstItem="Wsn-TI-veU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ICQ-5K-tSY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wsn-TI-veU" secondAttribute="trailing" id="LM5-Wd-51G"/>
+                            <constraint firstItem="bNH-DI-aeS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Sqk-0f-CjA"/>
+                            <constraint firstItem="bNH-DI-aeS" firstAttribute="top" secondItem="Wsn-TI-veU" secondAttribute="bottom" constant="20" id="yGr-eJ-XkL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="filterImageView" destination="bNH-DI-aeS" id="pDb-Y7-W7u"/>
+                        <outlet property="oldImageView" destination="Wsn-TI-veU" id="d7e-BU-qb9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
