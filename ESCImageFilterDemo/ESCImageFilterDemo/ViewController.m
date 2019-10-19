@@ -28,9 +28,10 @@
     
     self.oldImage = [UIImage imageNamed:@"test2"];
     self.oldImageView.image = self.oldImage;
-    
-    [self filterTest];
-    
+    for (int i = 0; i < 1; i++) {
+        [self filterTest];
+    }
+//
     [self testRotate];
   
 }
@@ -54,13 +55,14 @@
      *  Image :   合成之后的图像
      *  fromRect:  合成之后图像的尺寸： 图像.extent
      */
+    
     CGImageRef imageRefr = [context createCGImage:outputImage fromRect:outputImage.extent];
     double endTime = CFAbsoluteTimeGetCurrent();
     double time = endTime - startTime;
     NSLog(@"%f",time);
     
-    
-//    self.filterImageView.image = [UIImage imageWithCGImage:imageRefr];
+    self.filterImageView.image = [UIImage imageWithCGImage:imageRefr];
+    CFRelease(imageRefr);
 }
 
 - (void)testRotate {
@@ -95,6 +97,7 @@
     double endTime = CFAbsoluteTimeGetCurrent();
     double time = endTime - startTime;
     NSLog(@"%f",time);
+    CFRelease(imageRefr);
 
 //    NSLog(@"%@===%@",self.oldImageView.image,self.filterImageView.image);
 }
